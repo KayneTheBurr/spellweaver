@@ -1,11 +1,13 @@
 using UnityEngine;
 
-public class FireboltProjectile : Projectile
+public class SparkProjectile : Projectile
 {
-    public float burnDuration = 10f;
-    public float burnTickInterval = 1f;
-    public float burnTotalDamage = 100f;
-    public GameObject explosionVFX;
+    public float shockDuration = 4f;
+    public GameObject sparkVFX;
+    private void FixedUpdate()
+    {
+        
+    }
     public override void OnHitEnemy(Enemy enemy)
     {
         enemy.TakeDamage(abilityData.baseDamage, abilityData.element, this.sourceAbility);
@@ -13,11 +15,11 @@ public class FireboltProjectile : Projectile
         if (PlayerManager.instance.playerCombatManager.DoesThisTriggerStatusEffect())
         {
             ApplyStatusEffect(enemy);
-            Debug.Log("applied burn");
+            Debug.Log("applied shock");
         }
-        if (explosionVFX)
+        if (sparkVFX)
         {
-            GameObject explosion = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+            GameObject sparks = Instantiate(sparkVFX, transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
     }
@@ -27,7 +29,8 @@ public class FireboltProjectile : Projectile
     }
     protected void ApplyStatusEffect(Enemy enemy)
     {
-        BurnEffect burn = new BurnEffect();
-        burn.ApplyBurn(enemy, burnTotalDamage, burnDuration, burnTickInterval );
+        ShockedEffect shock = new ShockedEffect();
+        shock.ApplyShock(enemy, shockDuration);
     }
 }
+

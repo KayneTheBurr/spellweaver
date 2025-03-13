@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Basic_Poison
   m_EditorClassIdentifier: 
   abilityName: Poison Dagger
-  description: 'Conjure a poisoned dagger to fling at an enemy. Every third cast '
+  description: Conjure a poisoned dagger to fling at an enemy. Every third cast applies
+    a 300 POISON over 10 seconds.
   element: 3
   abilityType: 0
-  cooldown: 0
-  baseDamage: 0
+  cooldown: 0.8
+  baseDamage: 80
   duration: 0
   abilityIcon: {fileID: 0}
-  abilityPrefab: {fileID: 0}
+  abilityPrefab: {fileID: 983891813865162362, guid: 816980bafa8a122499fccffe2213f881, type: 3}

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Basic_Lightning
   m_EditorClassIdentifier: 
   abilityName: Spark
-  description: 
+  description: Lob a sparking orb of lightning. Every third cast applied SHOCK.
   element: 2
   abilityType: 0
-  cooldown: 0
-  baseDamage: 0
+  cooldown: 0.8
+  baseDamage: 160
   duration: 0
   abilityIcon: {fileID: 0}
-  abilityPrefab: {fileID: 0}
+  abilityPrefab: {fileID: 3442707634243705557, guid: 243a6f618de66ad49899e9c1f7f3f982, type: 3}
