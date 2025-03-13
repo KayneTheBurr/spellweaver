@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f458b297f4fa7d145b392dc27562755c, type: 3}
+  m_Name: Basic_Fire
+  m_EditorClassIdentifier: 
+  abilityName: Firebolt
+  description: A small fire bolt. Every thind cast applies a 400 burn over 10 seconds.
+  element: 0
+  abilityType: 0
+  cooldown: 1
+  baseDamage: 90
+  duration: 0
+  abilityIcon: {fileID: 21300000, guid: 831aeb8ecaf6420458533f961d4a2f00, type: 3}
+  abilityPrefab: {fileID: 983891813865162362, guid: 13ec2a1f467fa31428efcedda9ddc66e, type: 3}

@@ -43,7 +43,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""e71841cd-2128-4148-863e-dbadb291df6e"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=10,y=10)"",
+                    ""processors"": ""ScaleVector2(x=8,y=8)"",
                     ""groups"": """",
                     ""action"": ""Aim"",
                     ""isComposite"": false,
@@ -67,9 +67,45 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""id"": ""8a847106-c9dc-4d17-a528-28dcd3e65673"",
             ""actions"": [
                 {
-                    ""name"": ""Sensitivity"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""6cd81536-c545-40a5-8836-2755e7bf9182"",
+                    ""name"": ""BasicAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""ced51e48-1c32-469a-88f7-9b5260dd6947"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability1"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7d86525-33ec-4397-9a74-88eb63d6bdb8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability2"",
+                    ""type"": ""Button"",
+                    ""id"": ""95cff84e-8e9c-4ce6-b4ed-29677c06c995"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability3"",
+                    ""type"": ""Button"",
+                    ""id"": ""c00810ff-4c70-4cba-b9af-ef4783c7997d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability4"",
+                    ""type"": ""Button"",
+                    ""id"": ""452589d9-2daf-41b6-95b7-18dac4e2bf44"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -79,23 +115,111 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""bb8b0527-3dec-4a90-807f-4282afbce47a"",
-                    ""path"": """",
+                    ""id"": ""6f64bd4e-f6d2-45c0-9680-13d689ce1ed2"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Sensitivity"",
+                    ""action"": ""BasicAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dc5d64cc-b78b-4963-a998-62d772f3818a"",
-                    ""path"": """",
+                    ""id"": ""bc676886-2f5b-4bd2-8a87-730a8c5d4238"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Sensitivity"",
+                    ""action"": ""BasicAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8c8b55c-c9ba-4571-9543-d25a58aaaf95"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6fe11172-c1a1-42df-858d-deaccc7976d3"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a2e2a0a-0e54-4134-9290-cef8bea89960"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b9edf548-73c1-4370-91d5-d8e740d73682"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74fd92df-8f9e-4b7b-8eb0-644cd771aa5a"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d120f5fe-0419-4935-aefd-cc330fff7d58"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fba3abfa-ad8d-4366-8d8d-006a5677e2a0"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4cf6c0c-6add-4b84-98cf-6c1780551b1f"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -109,7 +233,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_AimingControls_Aim = m_AimingControls.FindAction("Aim", throwIfNotFound: true);
         // PlayerActions
         m_PlayerActions = asset.FindActionMap("PlayerActions", throwIfNotFound: true);
-        m_PlayerActions_Sensitivity = m_PlayerActions.FindAction("Sensitivity", throwIfNotFound: true);
+        m_PlayerActions_BasicAttack = m_PlayerActions.FindAction("BasicAttack", throwIfNotFound: true);
+        m_PlayerActions_Ability1 = m_PlayerActions.FindAction("Ability1", throwIfNotFound: true);
+        m_PlayerActions_Ability2 = m_PlayerActions.FindAction("Ability2", throwIfNotFound: true);
+        m_PlayerActions_Ability3 = m_PlayerActions.FindAction("Ability3", throwIfNotFound: true);
+        m_PlayerActions_Ability4 = m_PlayerActions.FindAction("Ability4", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -223,12 +351,20 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // PlayerActions
     private readonly InputActionMap m_PlayerActions;
     private List<IPlayerActionsActions> m_PlayerActionsActionsCallbackInterfaces = new List<IPlayerActionsActions>();
-    private readonly InputAction m_PlayerActions_Sensitivity;
+    private readonly InputAction m_PlayerActions_BasicAttack;
+    private readonly InputAction m_PlayerActions_Ability1;
+    private readonly InputAction m_PlayerActions_Ability2;
+    private readonly InputAction m_PlayerActions_Ability3;
+    private readonly InputAction m_PlayerActions_Ability4;
     public struct PlayerActionsActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActionsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Sensitivity => m_Wrapper.m_PlayerActions_Sensitivity;
+        public InputAction @BasicAttack => m_Wrapper.m_PlayerActions_BasicAttack;
+        public InputAction @Ability1 => m_Wrapper.m_PlayerActions_Ability1;
+        public InputAction @Ability2 => m_Wrapper.m_PlayerActions_Ability2;
+        public InputAction @Ability3 => m_Wrapper.m_PlayerActions_Ability3;
+        public InputAction @Ability4 => m_Wrapper.m_PlayerActions_Ability4;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,16 +374,40 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsActionsCallbackInterfaces.Add(instance);
-            @Sensitivity.started += instance.OnSensitivity;
-            @Sensitivity.performed += instance.OnSensitivity;
-            @Sensitivity.canceled += instance.OnSensitivity;
+            @BasicAttack.started += instance.OnBasicAttack;
+            @BasicAttack.performed += instance.OnBasicAttack;
+            @BasicAttack.canceled += instance.OnBasicAttack;
+            @Ability1.started += instance.OnAbility1;
+            @Ability1.performed += instance.OnAbility1;
+            @Ability1.canceled += instance.OnAbility1;
+            @Ability2.started += instance.OnAbility2;
+            @Ability2.performed += instance.OnAbility2;
+            @Ability2.canceled += instance.OnAbility2;
+            @Ability3.started += instance.OnAbility3;
+            @Ability3.performed += instance.OnAbility3;
+            @Ability3.canceled += instance.OnAbility3;
+            @Ability4.started += instance.OnAbility4;
+            @Ability4.performed += instance.OnAbility4;
+            @Ability4.canceled += instance.OnAbility4;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
         {
-            @Sensitivity.started -= instance.OnSensitivity;
-            @Sensitivity.performed -= instance.OnSensitivity;
-            @Sensitivity.canceled -= instance.OnSensitivity;
+            @BasicAttack.started -= instance.OnBasicAttack;
+            @BasicAttack.performed -= instance.OnBasicAttack;
+            @BasicAttack.canceled -= instance.OnBasicAttack;
+            @Ability1.started -= instance.OnAbility1;
+            @Ability1.performed -= instance.OnAbility1;
+            @Ability1.canceled -= instance.OnAbility1;
+            @Ability2.started -= instance.OnAbility2;
+            @Ability2.performed -= instance.OnAbility2;
+            @Ability2.canceled -= instance.OnAbility2;
+            @Ability3.started -= instance.OnAbility3;
+            @Ability3.performed -= instance.OnAbility3;
+            @Ability3.canceled -= instance.OnAbility3;
+            @Ability4.started -= instance.OnAbility4;
+            @Ability4.performed -= instance.OnAbility4;
+            @Ability4.canceled -= instance.OnAbility4;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -271,6 +431,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     }
     public interface IPlayerActionsActions
     {
-        void OnSensitivity(InputAction.CallbackContext context);
+        void OnBasicAttack(InputAction.CallbackContext context);
+        void OnAbility1(InputAction.CallbackContext context);
+        void OnAbility2(InputAction.CallbackContext context);
+        void OnAbility3(InputAction.CallbackContext context);
+        void OnAbility4(InputAction.CallbackContext context);
     }
 }
