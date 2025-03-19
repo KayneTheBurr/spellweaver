@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f458b297f4fa7d145b392dc27562755c, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  abilityName: Fireball
+  description: 'Launch an explosive fireball that deals damage in a small area, and
+    appplies a 200 damage burn over 4 seconds. '
+  element: 0
+  abilityType: 1
+  cooldown: 4
+  baseDamage: 500
+  duration: 0
+  spellSpawnNumber: 2
+  colorData: {fileID: 11400000, guid: e2d1548bda7dfab478bbb58a4d9952d7, type: 2}
+  abilityIcon: {fileID: 21300000, guid: 6c2e32b15ca992f48ad10bfd7247f4a1, type: 3}
+  abilityPrefab: {fileID: 3442707634243705557, guid: bee7c2afb43f55c46bee5c770e661951, type: 3}

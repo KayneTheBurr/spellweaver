@@ -39,7 +39,7 @@ public class DamageTimeManager : MonoBehaviour
     void Start()
     {
         EnemySpawner.instance.combatDuration = combatDuration;
-        endCombatManager = FindFirstObjectByType<EndCombatManager>();
+        //endCombatManager = FindFirstObjectByType<EndCombatManager>();
         
         if (countdownCoroutine == null)
         {

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c7bfbee9d41550479d7fb1fe31b799a, type: 3}
+  m_Name: PoisonGreen
+  m_EditorClassIdentifier: 
+  element: 3
+  baseColor: {r: 0.14606741, g: 0.2, b: 0.06966292, a: 1}
+  hoverColor: {r: 0.37745097, g: 0.5, b: 0.2009804, a: 1}
+  selectedColor: {r: 0.22521737, g: 0.35, b: 0.051739126, a: 1}

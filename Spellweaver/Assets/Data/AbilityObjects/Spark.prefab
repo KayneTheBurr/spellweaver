@@ -70,7 +70,7 @@ MonoBehaviour:
   abilityData: {fileID: 11400000, guid: 464202bfb07f69e458cf092d75514085, type: 2}
   projectilePrefab: {fileID: 3442707634243705557}
   spawnPoint: {fileID: 0}
-  projectileSpeed: 25
+  projectileSpeed: 35
 --- !u!33 &7638152631266168190
 MeshFilter:
   m_ObjectHideFlags: 0

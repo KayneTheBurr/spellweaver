@@ -10,7 +10,10 @@ public class AbilityData : ScriptableObject
     public float cooldown;
     public float baseDamage;
     public float duration;
-    
+    public int spellSpawnNumber = 1;
+
+    public ColorData colorData;
+
     public Sprite abilityIcon;
     public GameObject abilityPrefab;
 

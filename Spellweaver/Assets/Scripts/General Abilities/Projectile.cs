@@ -3,11 +3,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float damage;
-    public ProjectileAbility sourceAbility;
+    public Ability sourceAbility;
     public AbilityData abilityData;
     protected Rigidbody rb;
 
-    public virtual void Initialize(AbilityData abilityData, ProjectileAbility ability)
+    public virtual void Initialize(AbilityData abilityData, Ability ability)
     {
         this.sourceAbility = ability;
         this.abilityData = abilityData;

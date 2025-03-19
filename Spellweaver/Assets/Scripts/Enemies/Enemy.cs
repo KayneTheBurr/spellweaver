@@ -139,6 +139,7 @@ public class Enemy : MonoBehaviour
     {
         //for testing
         fireMult = elementMultipliers[ElementType.Fire];
+
         if(!isFalling && isMoving)
         {
             HandleMovement();
@@ -217,18 +218,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
-    public void AddEffect(StatusEffect effect)
+    public bool AddEffect(StatusEffect effect)
     {
-        if (elementMixer.CheckForElementalReaction(effect))
+        bool reactionTriggered = elementMixer.CheckForElementalReaction(effect);
+        if (reactionTriggered)
         {
             
-            return; // reaction triggered, no need to add the effect
+            return false; // reaction triggered, no need to add the effect
         }
 
         Debug.Log($"Apply {effect}");
         activeEffects.Add(effect);
         LogActiveEffects();
+
+        return true;
     }
     public void RemoveEffect(StatusEffect effect)
     {
@@ -236,8 +239,6 @@ public class Enemy : MonoBehaviour
         activeEffects.Remove(effect);
         LogActiveEffects();
     }
-
-
     public void ModifyDamageMultiplier(StatusEffect effect, float multiplier)
     {
         if (activeMultipliers.ContainsKey(effect))

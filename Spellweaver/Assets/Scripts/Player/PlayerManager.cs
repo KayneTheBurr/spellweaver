@@ -14,7 +14,8 @@ public class PlayerManager : MonoBehaviour
     [Header("Ability Info")]
     public List<AbilityData> mySpells = new List<AbilityData>();
     public AbilityData basicAttack;
-    private SpellSpawnPoint spellSpawnPoint;
+    public Transform spellSpawnPoint1;
+    public Transform spellSpawnPoint2;
 
     [Header("Player Sub Managers")]
     public PlayerAbilityManager playerAbilityManager {  get; private set; }
@@ -35,8 +36,8 @@ public class PlayerManager : MonoBehaviour
         playerAbilityManager = GetComponent<PlayerAbilityManager>();
         playerCombatManager = GetComponent<PlayerCombatManager>();
 
-        spellSpawnPoint = GetComponentInChildren<SpellSpawnPoint>();
-        if (spellSpawnPoint == null) Debug.LogWarning("no spawn point set fix me!");
+        //spellSpawnPoint = GetComponentInChildren<SpellSpawnPoint>();
+        //if (spellSpawnPoint == null) Debug.LogWarning("no spawn point set fix me!");
     }
     void Start()
     {
@@ -76,11 +77,15 @@ public class PlayerManager : MonoBehaviour
         mySpells.Clear();
         //Debug.Log("All abilites reset");
     }
-    public Transform GetSpellSpawnPoint()
+    public Transform GetSpellSpawnPoint(int spawnNumber)
     {
-        if(spellSpawnPoint != null)
+        if(spawnNumber == 1)
         {
-            return spellSpawnPoint.transform;
+            return spellSpawnPoint1;
+        }
+        else if(spawnNumber ==2)
+        {
+            return spellSpawnPoint2;
         }
         else
         {

@@ -53,6 +53,7 @@ MonoBehaviour:
   damage: 0
   sourceAbility: {fileID: 0}
   abilityData: {fileID: 11400000, guid: 04f759eb25f862e4c8f9765eff93d490, type: 2}
+  shockDuration: 4
   pulseInterval: 2
   detonateDelayTime: 0.25
   pulseRadius: 8

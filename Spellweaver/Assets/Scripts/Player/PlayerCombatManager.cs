@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerCombatManager : MonoBehaviour
 {
     private PlayerManager player;
-    private int basicAttackCounter = 0;
+    public int basicAttackCounter = 0;
     public float actionCooldown = 0.8f;
     public float[] abilityCooldowns = new float[4];
     public float basicAttackCooldown;

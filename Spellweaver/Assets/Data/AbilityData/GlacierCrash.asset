@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f458b297f4fa7d145b392dc27562755c, type: 3}
+  m_Name: GlacierCrash
+  m_EditorClassIdentifier: 
+  abilityName: Glacier Crash
+  description: 'Target an area to spawn a set of massive ice crystals in the air,
+    before they come crashing down. The central crystla deals double damage, all
+    crystals apply chill. '
+  element: 1
+  abilityType: 1
+  cooldown: 1
+  baseDamage: 1000
+  duration: 0
+  spellSpawnNumber: 1
+  colorData: {fileID: 11400000, guid: 04a4de10dcae085419ce9959242f85cb, type: 2}
+  abilityIcon: {fileID: 0}
+  abilityPrefab: {fileID: 983891813865162362, guid: 1f814a5d87a38a642a0903070cd70fa7, type: 3}

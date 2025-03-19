@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Spark : ProjectileAbility
+public class Spark : BasicProjectileAbility
 {
     public override void Execute()
     {

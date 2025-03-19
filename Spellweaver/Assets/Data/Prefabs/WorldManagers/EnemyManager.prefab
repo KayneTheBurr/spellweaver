@@ -48,7 +48,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5262372709668196162, guid: 0e8815f820a42704b89e19adda55080f, type: 3}
   spawnPoints: []
   spawnHeight: 30
-  maxEnemyNumber: 1
+  maxEnemyNumber: 4
   combatDuration: 0
 --- !u!114 &6903437531508502189
 MonoBehaviour:

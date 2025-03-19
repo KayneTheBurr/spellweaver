@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class StunEffect : StatusEffect
 {
-    public float stunMultiplier = 2.5f;
-    public float slowEffect = 0.01f;
+    public float stunMultiplier = 3f;
     
     public void ApplyStun(Enemy enemy, float duration)
     {

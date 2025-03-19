@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IceShard : ProjectileAbility
+public class IceShard : BasicProjectileAbility
 {
     public override void Execute()
     {

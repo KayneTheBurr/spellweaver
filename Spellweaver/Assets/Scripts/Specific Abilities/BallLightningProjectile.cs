@@ -6,6 +6,7 @@ public class BallLightningProjectile : Projectile
     private bool hasDetonated = false;
     private float pulseTimer = 0f;
 
+    public float shockDuration = 4f;
     public float pulseInterval = 2f;
     public float detonateDelayTime = 0.8f;
     public float pulseRadius = 4f;
@@ -29,7 +30,7 @@ public class BallLightningProjectile : Projectile
         Gizmos.color = detonateColor;
         Gizmos.DrawWireSphere(transform.position, detonateRadius); // Draw detonation radius
     }
-    public override void Initialize(AbilityData abilityData, ProjectileAbility ability)
+    public override void Initialize(AbilityData abilityData, Ability ability)
     {
         base.Initialize(abilityData, ability);
         damage = abilityData.baseDamage;
@@ -79,6 +80,8 @@ public class BallLightningProjectile : Projectile
             if (enemy != null)
             {
                 enemy.TakeDamage(pulseMult * damage, ElementType.Lightning, sourceAbility);
+                ShockedEffect shock = new ShockedEffect();
+                shock.ApplyShock(enemy, shockDuration);
             }
         }
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Firebolt : ProjectileAbility
+public class Firebolt : BasicProjectileAbility
 {
 
     public override void Execute()

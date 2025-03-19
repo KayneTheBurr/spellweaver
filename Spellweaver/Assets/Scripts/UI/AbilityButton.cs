@@ -15,6 +15,8 @@ public class AbilityButton : MonoBehaviour
     public TextMeshProUGUI abilityNameText;
     public TextMeshProUGUI slotIndicatorText;
 
+    
+
     public bool isAssigned = false;
     public int assignedSlot = -1;
     private Button button;
@@ -47,40 +49,13 @@ public class AbilityButton : MonoBehaviour
 
     private void SetButtonColors()
     {
-        Color baseColor = Color.gray;
-        Color hoverColor = Color.white;
-        Color selectedColor = Color.yellow;
-
-        switch (abilityData.element)
-        {
-            case ElementType.Fire:
-                baseColor = new Color(0.6f, 0.1f, 0.1f); // Dark Crimson
-                hoverColor = new Color(0.8f, 0.2f, 0.2f); // Medium Crimson
-                selectedColor = new Color(0.5f, 0f, 0f); // Deep Scarlet
-                break;
-            case ElementType.Ice:
-                baseColor = new Color(0.1f, 0.2f, 0.6f); // Royal Blue
-                hoverColor = new Color(0.3f, 0.5f, 0.8f); // Icy Blue
-                selectedColor = new Color(0.05f, 0.1f, 0.4f); // Midnight Blue
-                break;
-            case ElementType.Poison:
-                baseColor = new Color(0.1f, 0.4f, 0.1f); // Emerald Green
-                hoverColor = new Color(0.2f, 0.6f, 0.2f); // Jade
-                selectedColor = new Color(0.05f, 0.25f, 0.05f); // Forest Green
-                break;
-            case ElementType.Lightning:
-                baseColor = new Color(0.4f, 0.1f, 0.5f); // Imperial Purple
-                hoverColor = new Color(0.6f, 0.3f, 0.8f); // Amethyst
-                selectedColor = new Color(0.2f, 0.05f, 0.3f); // Deep Plum
-                break;
-        }
-
-        // Apply colors to button states
+        
         ColorBlock colors = button.colors;
-        colors.normalColor = baseColor;
-        colors.highlightedColor = hoverColor;
-        colors.pressedColor = selectedColor;
-        colors.selectedColor = selectedColor;
+        colors.normalColor = abilityData.colorData.baseColor;
+        colors.highlightedColor = abilityData.colorData.hoverColor;
+        colors.pressedColor = abilityData.colorData.selectedColor;
+        colors.selectedColor = abilityData.colorData.selectedColor;
+
         button.colors = colors;
     }
 

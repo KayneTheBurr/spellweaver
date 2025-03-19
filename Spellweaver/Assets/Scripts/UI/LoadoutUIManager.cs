@@ -40,6 +40,7 @@ public class LoadoutUIManager : MonoBehaviour
     public GameObject confirmationPanel;
     public Button confirmButton;
     public Button cancelButton;
+    public Button quitButton;
 
     private AbilityButton assignedBasicAttack;
     public AbilityButton currentAbilityButton;
@@ -73,6 +74,7 @@ public class LoadoutUIManager : MonoBehaviour
         readyButton.onClick.AddListener(ShowConfirmationPanel);
         confirmButton.onClick.AddListener(StartCombatPhase);
         cancelButton.onClick.AddListener(CancelConfirmation);
+        quitButton.onClick.AddListener(Application.Quit);
     }
     public void DisplayAbilityInfo(AbilityData ability, AbilityButton button)
     {
@@ -91,7 +93,7 @@ public class LoadoutUIManager : MonoBehaviour
         abilityIcon.sprite = ability.abilityIcon;
         abilityDescriptionText.text = ability.description;
         cooldownText.text = $"Cooldown: {ability.cooldown} sec";
-        baseDamageText.text = $"Base Damage: {ability.baseDamage}";
+        baseDamageText.text = $"Damage: {ability.baseDamage}";
         
 
         if (currentAbilityButton.isAssigned)

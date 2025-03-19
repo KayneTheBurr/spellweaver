@@ -6,6 +6,8 @@ public class DamageUIManager : MonoBehaviour
 {
     public static DamageUIManager instance;
 
+    public TextMeshProUGUI effectName;
+
     [Header("AbilityHUD")]
     public Image[] abilityIcons = new Image[4];
     public Image[] cooldownClocks = new Image[4];
@@ -150,5 +152,9 @@ public class DamageUIManager : MonoBehaviour
         basicCooldownTimer = cooldown;
         basicMaxCooldown = cooldown;
         basicAttackClock.fillAmount = 1;
+    }
+    public void UpdateEffectName(string effect)
+    {
+        effectName.text = effect;
     }
 }

@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05222eb627f761644b5f9b675809f9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatDuration: 60
+  combatDuration: 30
   countdownTime: 3
   timer: 0
   isCombatActive: 0
+  canAim: 0
   countdownText: {fileID: 0}
   countdownPanel: {fileID: 0}
   endCombatManager: {fileID: 0}

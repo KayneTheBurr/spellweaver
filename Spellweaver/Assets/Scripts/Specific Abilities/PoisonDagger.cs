@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PoisonDagger : ProjectileAbility
+public class PoisonDagger : BasicProjectileAbility
 {
     public override void Execute()
     {

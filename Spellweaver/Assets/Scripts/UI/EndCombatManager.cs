@@ -45,6 +45,7 @@ public class EndCombatManager : MonoBehaviour
     }
     public void ShowEndCombatPanel(Dictionary<ElementType, float> damageReport)
     {
+        endCombatPanel.SetActive(true);
         // get this and run it from the total combined values in damagetimemanager
         totalDamage = 0;
         damageByElement = damageReport;

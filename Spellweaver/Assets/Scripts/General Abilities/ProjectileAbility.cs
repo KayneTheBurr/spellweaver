@@ -11,7 +11,7 @@ public class ProjectileAbility : Ability
         base.Execute();
 
         projectilePrefab = abilityData.abilityPrefab;
-        spawnPoint = PlayerManager.instance.GetSpellSpawnPoint();
+        spawnPoint = PlayerManager.instance.GetSpellSpawnPoint(abilityData.spellSpawnNumber);
         if (projectilePrefab != null && spawnPoint != null)
         {
             //Debug.Log("spawn in projectile!!!!");

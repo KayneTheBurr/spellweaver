@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c7c96ff57dc884196fc377b2440768, type: 3}
+  m_Name: PlagueData
+  m_EditorClassIdentifier: 
+  statusType: 10
+  effectName: Plague
+  description: When applying the fifth stack of Poison, consume all 5 Poison stacks
+    to instead deal their combined damage over 20 seconds.
+  statusIcon: {fileID: 0}
+  causeElement1: 3
+  causeStatus2: 9
+  element1Icon: {fileID: 0}
+  element2Icon: {fileID: 0}
+  element1name: Poison
+  element2name: Poison x4

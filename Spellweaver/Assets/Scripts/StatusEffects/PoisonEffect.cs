@@ -12,7 +12,16 @@ public class PoisonEffect : DamageOverTimeEffect
             tickInterval = tickInterval
         };
         Debug.Log("Trigger Poison");
+        StatusEffectDatabase.instance.DiscoverEffect(Status.Poison);
         ApplyDOT(poisonDOT, target);
-
+    }
+    protected override void StartEffect()
+    {
+        bool effectApplied = target.AddEffect(this);
+        if (!effectApplied)
+        {
+            Debug.Log("effects mixed, base effect not applied");
+            return;
+        }
     }
 }

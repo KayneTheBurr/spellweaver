@@ -42,21 +42,24 @@ public class HitScanAbility : Ability
     {
         
     }
+    protected virtual void ApplyHitEnviroEffects(Vector3 hitPoint, Vector3 hitNormal, GameObject hitscanObject)
+    {
+
+    }
     protected virtual void OnHitEnemy(Enemy enemy, Vector3 hitPoint, Vector3 hitNormal)
     {
-        //Debug.Log($"Hit enemy");
-
-        //enemy.TakeDamage(abilityData.baseDamage, abilityData.element);
+        Debug.Log($"Hit enemy");
 
         if (hitScanPrefab != null)
         {
             GameObject hitPrefab = Instantiate(hitScanPrefab, hitPoint, Quaternion.LookRotation(hitNormal));
             HitScanAbility hitscanAbility = hitPrefab.GetComponent<HitScanAbility>();
-
+            
             if (hitscanAbility != null)
             {
                 hitscanAbility.ApplyHitEffects(enemy, hitPrefab);
             }
+            
         }
     }
     protected virtual void OnHitEnvironment(Vector3 hitPoint, Vector3 hitNormal)
@@ -65,10 +68,13 @@ public class HitScanAbility : Ability
 
         if (hitScanPrefab != null)
         {
-            GameObject hitPrefab = Instantiate(hitScanPrefab, 
-                hitPoint, Quaternion.LookRotation(hitNormal));
+            GameObject hitPrefab = Instantiate(hitScanPrefab, hitPoint, Quaternion.LookRotation(hitNormal));
+            HitScanAbility hitscanAbility = hitPrefab.GetComponent<HitScanAbility>();
             //Debug.Log($"{abilityData.abilityName} instantiated at {hitPoint}");
-            
+            if (hitscanAbility != null)
+            {
+                hitscanAbility.ApplyHitEnviroEffects(hitPoint, hitNormal, hitPrefab);
+            }
         }
     }
 }

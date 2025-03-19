@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f458b297f4fa7d145b392dc27562755c, type: 3}
+  m_Name: Fire_Combustion
+  m_EditorClassIdentifier: 
+  abilityName: Ignite
+  description: "Detonate any poison or burn damage over time effect for its full
+    damage as fire. \nDamage scales with total damage of effects consumed and number
+    of effects consumed. "
+  element: 0
+  abilityType: 1
+  cooldown: 20
+  baseDamage: 1
+  duration: 0
+  spellSpawnNumber: 1
+  colorData: {fileID: 11400000, guid: e2d1548bda7dfab478bbb58a4d9952d7, type: 2}
+  abilityIcon: {fileID: 0}
+  abilityPrefab: {fileID: 1794074333278995693, guid: 928047f41319cef4cb59be23f552cefe, type: 3}

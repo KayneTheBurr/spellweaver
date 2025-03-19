@@ -6,6 +6,7 @@ public class ThunderstrikeProjectile : Projectile
     public float markDuration = 1.5f;
     public float stunFrozenMultiplier = 3.0f;
     public GameObject lightningEffectPrefab;
+    public float shockDuration = 3f;
 
     private Vector3 strikePosition;
     private Enemy markedEnemy;
@@ -15,7 +16,7 @@ public class ThunderstrikeProjectile : Projectile
     public float groundEmbedDepth = 0.1f;
     public LayerMask abilityProjectileLayer;
 
-    public override void Initialize(AbilityData abilityData, ProjectileAbility ability)
+    public override void Initialize(AbilityData abilityData, Ability ability)
     {
         base.Initialize(abilityData, ability);
         damage = abilityData.baseDamage;
@@ -35,6 +36,8 @@ public class ThunderstrikeProjectile : Projectile
             }
             
             markedEnemy.TakeDamage(finalDamage, ElementType.Lightning, sourceAbility);
+            ShockedEffect shock = new ShockedEffect();
+            shock.ApplyShock(markedEnemy, shockDuration);
         }
         
 
@@ -82,7 +85,7 @@ public class ThunderstrikeProjectile : Projectile
     {
         if (rb != null)
         {
-            rb.linearVelocity = Vector3.zero;
+            //rb.linearVelocity = Vector3.zero;
             rb.isKinematic = true;
         }
     }

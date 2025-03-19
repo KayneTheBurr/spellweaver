@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c7c96ff57dc884196fc377b2440768, type: 3}
+  m_Name: SuperchargedData
+  m_EditorClassIdentifier: 
+  statusType: 24
+  effectName: Supercharged
+  description: 'Consumes the Charged effect to deal an additional burst of ice damage
+    for 80% of the damage that caused the supercharged effect.
+
+
+    Affected enemy
+    takes 50% increased ice damage for 5 seconds.
+
+    Affected enemy takes 50% increased
+    lightning damage for 5 seconds.'
+  statusIcon: {fileID: 0}
+  causeElement1: 1
+  causeStatus2: 14
+  element1Icon: {fileID: 0}
+  element2Icon: {fileID: 0}
+  element1name: Chill
+  element2name: Charged

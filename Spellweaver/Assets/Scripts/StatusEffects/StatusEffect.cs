@@ -26,7 +26,12 @@ public abstract class StatusEffect
     }
     protected virtual void StartEffect()
     {
-        target.AddEffect(this);
+        bool effectApplied = target.AddEffect(this);
+        if (!effectApplied)
+        {
+            Debug.Log("effects mixed, base effect not applied");
+            return;
+        }
     }
     public virtual void RemoveEffect()
     {

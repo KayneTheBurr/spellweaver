@@ -7,24 +7,30 @@ public class ShockedEffect : StatusEffect
 
     public void ApplyShock(Enemy target, float duration)
     {
+        StatusEffectDatabase.instance.DiscoverEffect(Status.Shock);
         //Debug.Log("Trigger Shock");
         ApplyEffect(target, duration);
     }
     protected override void StartEffect()
     {
-        target.AddEffect(this);
-
-        if (target.HasEffect<StunEffect>())
+        bool effectApplied = target.AddEffect(this);
+        if (!effectApplied)
         {
-            Debug.Log("already shocked");
+            Debug.Log("effects mixed, base effect not applied");
             return;
         }
-        if (target.HasEffect<ChargedEffect>())
-        {
-            Debug.Log("already charged");
-            return;
-        }
-
+        //if (target.HasEffect<StunEffect>())
+        //{
+        //    Debug.Log("already shocked");
+        //    return;
+        //}
+        //if (target.HasEffect<ChargedEffect>())
+        //{
+        //    Debug.Log("already charged");
+        //    return;
+        //}
+        //if (target.HasEffect<ElectrocuteEffect>()) return;
+        
         Debug.Log("no electric effect, apply shock");
         target.ModifyDamageMultiplier(this, damageMultiplier);
 

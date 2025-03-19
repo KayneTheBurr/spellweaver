@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using NUnit.Framework.Internal.Commands;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,22 +8,27 @@ public class EnemyElementMixer : MonoBehaviour
 {
     private Enemy enemy;
 
+    private string elementMixName = "";
+
     private int poisonStacks = 0;
     private const int maxPoisonStacks = 4;
     public GameObject floorFirePrefab;
 
     [Header("Effect damage and multipliers")]
+    public float infectedSurgeMult = 0.6f;
     public float superChargedMultiplier = 0.8f;
     public float atomizedMultiplier = 3f;
-    public float overloadDamage = 300f;
+    public float atomizeRadius = 6f;
+    public float overloadDamage = 500f;
+    public float overloadRadius = 10f;
 
     [Header("Effect Durations")]
-    public float stunDuration = 4f;
+    public float stunDuration = 3.5f;
     public float chargedDuration = 30f;
     public float scorchDuration = 6f;
     public float steamedDuration = 4f;
     public float wetDuration = 6f;
-    public float brittleDuration = 6f;
+    public float brittleDuration = 5f;
     public float freezeDuration = 2.5f;
     public float cryotoxinDuration = 2f;
     public float superchargedDuration = 5f;
@@ -31,6 +37,7 @@ public class EnemyElementMixer : MonoBehaviour
     public float toxicLightMultiplier = 0.25f;
     public float toxicLightDuration = 8f;
     public float toxicLightTickRate = 1f;
+    public float taintedJoltRadius = 10f;
 
     public float plagueBaseDamage = 0f;
     public float plagueDuration = 20f;
@@ -56,97 +63,141 @@ public class EnemyElementMixer : MonoBehaviour
             // fire reactions 
             case BurnEffect when enemy.HasEffect<BurnEffect>():
                 TriggerScorch();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Scorch);
+                elementMixName = "Scorch";
                 reactionTriggered = true;
                 break;
             case BurnEffect when enemy.HasEffect<PoisonEffect>():
                 TriggerFireCombust(newEffect);
+                StatusEffectDatabase.instance.DiscoverEffect(Status.FireCombust);
+                elementMixName = "Fire Combust";
                 reactionTriggered = true;
                 break;
             case BurnEffect when enemy.HasEffect<WetEffect>():
                 TriggerSteamed();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Steamed);
+                elementMixName = "Steamed";
                 reactionTriggered = true;
                 break;
             case BurnEffect when enemy.HasEffect<ChillEffect>():
                 TriggerWet();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Wet);
+                elementMixName = "Wet";
                 reactionTriggered = true;
                 break;
             case BurnEffect when enemy.HasEffect<PlagueEffect>():
+                StatusEffectDatabase.instance.DiscoverEffect(Status.ToxicBlaze);
                 TriggerToxicBlaze();
+                elementMixName = "Toxic Blaze";
                 reactionTriggered = true;
                 break;
             case BurnEffect when enemy.HasEffect<ChargedEffect>():
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Superheat);
                 TriggerSuperheat();
+                elementMixName = "Superheat";
                 reactionTriggered = true;
                 break;
             case BurnEffect when enemy.HasEffect<SteamedEffect>():
-                Debug.Log("Trigger Fizzled");
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Fizzled);
+                TriggerFizzled();
+                Debug.Log("Fizzled");
                 //does not apply burn
                 reactionTriggered = true;
                 break;
             case BurnEffect when enemy.HasEffect<BrittleEffect>():
                 TriggerShatter();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Shatter);
+                elementMixName = "Shatter";
                 reactionTriggered = true;
                 break;
 
             // ice reactions
             case ChillEffect when enemy.HasEffect<WetEffect>():
                 TriggerFreeze();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Freeze);
+                elementMixName = "Freeze";
                 reactionTriggered = true;
                 break;
             case ChillEffect when enemy.HasEffect<ChillEffect>():
                 TriggerBrittle();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Brittle);
+                elementMixName = "Brittle";
                 reactionTriggered = true;
                 break;
             case ChillEffect when enemy.HasEffect<PoisonEffect>():
                 TriggerCryotoxin();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Cryotoxin);
+                elementMixName = "Cryotoxin";
                 reactionTriggered = false; //cryotoxin still leaves both the poison and chill on as well
                 break;
             case ChillEffect when enemy.HasEffect<ChargedEffect>():
                 TriggerSupercharged();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Supercharged);
+                elementMixName = "Supercharged";
                 reactionTriggered = true;
                 break;
             case ChillEffect when enemy.HasEffect<ToxicBlazeEffect>():
                 TriggerExtinguish();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Extinguish);
+                elementMixName = "Extinguish";
                 reactionTriggered = true;
                 break;
 
             // lightning reactions
             case ShockedEffect when enemy.HasEffect<ShockedEffect>():
                 TriggerCharged();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Charged);
+                elementMixName = "Charged";
                 reactionTriggered = true;
                 break;
             case ShockedEffect when enemy.HasEffect<ChargedEffect>():
                 TriggerStun();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Stun);
+                elementMixName = "Stun";
                 reactionTriggered = true;
                 break;
             case ShockedEffect when enemy.HasEffect<WetEffect>():
                 TriggerElectrocute();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Electrocute);
+                elementMixName = "Electrocute";
                 reactionTriggered = true;
                 break;
             case ShockedEffect when enemy.HasEffect<PlagueEffect>():
                 TriggerInfectedSurge();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.InfectedSurge);
+                elementMixName = "Viral Surge";
                 reactionTriggered = false; //still applies shock
                 break;
             case ShockedEffect when enemy.HasEffect<ScorchEffect>():
                 TriggerOverload();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Overload);
+                elementMixName = "Overload";
                 reactionTriggered = true;
                 break;
             case ShockedEffect when enemy.HasEffect<PoisonEffect>():
                 TriggerToxicLight();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.ToxicLight);
+                elementMixName = "Toxic Light";
                 reactionTriggered = false; //still applies shock as well
                 break;
             case ShockedEffect when enemy.HasEffect<FrozenEffect>():
                 TriggerAtomize();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Atomize);
+                elementMixName = "Atomize";
                 reactionTriggered = true;
                 break;
 
             // poison reactions
-            case PoisonEffect when enemy.HasEffect<BrittleEffect>():
+            case PoisonEffect when enemy.HasEffect<FrozenEffect>():
                 TriggerDissolve();
+                StatusEffectDatabase.instance.DiscoverEffect(Status.Dissolve);
+                elementMixName = "Dissolve";
                 reactionTriggered = true;
                 break;
             case PoisonEffect when enemy.HasEffect<BurnEffect>():
                 TriggerPoisonCombust(newEffect);
+                StatusEffectDatabase.instance.DiscoverEffect(Status.PoisonCombust);
+                elementMixName = "Poison Combust";
                 reactionTriggered = true;
                 break;
             case PoisonEffect:
@@ -155,6 +206,8 @@ public class EnemyElementMixer : MonoBehaviour
                 {
                     poisonStacks = 0;
                     TriggerPlague();
+                    StatusEffectDatabase.instance.DiscoverEffect(Status.Plague);
+                    elementMixName = "Plague";
                     reactionTriggered = true;
                 }
                 break;
@@ -162,7 +215,7 @@ public class EnemyElementMixer : MonoBehaviour
             default:
                 break;
         }
-
+        DamageUIManager.instance.UpdateEffectName(elementMixName);
         return reactionTriggered;
     }
 
@@ -240,6 +293,16 @@ public class EnemyElementMixer : MonoBehaviour
         WetEffect wet = new WetEffect();
         wet.ApplyWet(enemy, wetDuration); //wet does nothing on its own 
     }
+    private void TriggerFizzled()
+    {
+        //Does hitting a steamed enemy remove steamed? for now yes
+        StatusEffect steamed = enemy.GetEffect<SteamedEffect>();
+        if (steamed != null)
+        {
+            steamed.RemoveEffect();
+            enemy.RemoveEffect(steamed);
+        }
+    }
     private void TriggerSuperheat()
     {
         Debug.Log("Trigger Superheat");
@@ -294,7 +357,7 @@ public class EnemyElementMixer : MonoBehaviour
             chill.RemoveEffect();
             enemy.RemoveEffect(chill);
         }
-
+        
         BrittleEffect brittle = new BrittleEffect();
         brittle.ApplyBrittle(enemy, brittleDuration);
     }
@@ -390,7 +453,7 @@ public class EnemyElementMixer : MonoBehaviour
         if (enemy.lastDamageSource.HasValue)
         {
             DamageInstance lastHit = enemy.lastDamageSource.Value;
-            lightningDamage = lastHit.damage * superChargedMultiplier;
+            lightningDamage = lastHit.damage * infectedSurgeMult;
             sourceAbility = lastHit.sourceAbility;
         }
         foreach (Enemy target in FindObjectsByType<Enemy>(FindObjectsSortMode.None))
@@ -437,7 +500,7 @@ public class EnemyElementMixer : MonoBehaviour
             DamageInstance lastHit = enemy.lastDamageSource.Value;
             sourceAbility = lastHit.sourceAbility;
         }
-        Collider[] nearbyEnemies = Physics.OverlapSphere(enemy.transform.position, 8f);
+        Collider[] nearbyEnemies = Physics.OverlapSphere(enemy.transform.position, overloadRadius);
         foreach (Collider col in nearbyEnemies)
         {
             Enemy target = col.GetComponent<Enemy>();
@@ -464,7 +527,7 @@ public class EnemyElementMixer : MonoBehaviour
             spreadPoisonDamage = lastHit.damage * toxicLightMultiplier;
             sourceAbility = lastHit.sourceAbility;
         }
-        Collider[] nearbyEnemies = Physics.OverlapSphere(enemy.transform.position, 8f);
+        Collider[] nearbyEnemies = Physics.OverlapSphere(enemy.transform.position, taintedJoltRadius);
         foreach (Collider col in nearbyEnemies)
         {
             Enemy target = col.GetComponent<Enemy>();
@@ -496,7 +559,7 @@ public class EnemyElementMixer : MonoBehaviour
             sourceAbility = lastHit.sourceAbility;
         }
 
-        Collider[] nearbyEnemies = Physics.OverlapSphere(enemy.transform.position, 6f);
+        Collider[] nearbyEnemies = Physics.OverlapSphere(enemy.transform.position, atomizeRadius);
         foreach (Collider col in nearbyEnemies)
         {
             Enemy target = col.GetComponent<Enemy>();
@@ -529,13 +592,13 @@ public class EnemyElementMixer : MonoBehaviour
     private void TriggerDissolve()
     {
         Debug.Log("Trigger dissolve");
-        //this just does not apply poison and also removes brittle
+        //this just does not apply poison and also removes freeze
         
-        StatusEffect brittle = enemy.GetEffect<BrittleEffect>();
-        if (brittle != null)
+        StatusEffect freeze = enemy.GetEffect<FrozenEffect>();
+        if (freeze != null)
         {
-            brittle.RemoveEffect();
-            enemy.RemoveEffect(brittle);
+            freeze.RemoveEffect();
+            enemy.RemoveEffect(freeze);
         }
     }
     private void TriggerPoisonCombust(StatusEffect poison)

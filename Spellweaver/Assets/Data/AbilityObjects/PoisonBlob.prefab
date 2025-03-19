@@ -53,7 +53,7 @@ MonoBehaviour:
   sourceAbility: {fileID: 0}
   abilityData: {fileID: 0}
   explosionRadius: 12
-  poisonDuration: 10
+  poisonDuration: 15
   poisonTickInterval: 1
   poisonTotalDamage: 1000
   explosionVFX: {fileID: 5910963297165099618, guid: 6e31fa8620350904395c803a486547ae, type: 3}
@@ -72,7 +72,7 @@ MonoBehaviour:
   abilityData: {fileID: 11400000, guid: 36c373d61238c404ea7a14a3dc032462, type: 2}
   projectilePrefab: {fileID: 3442707634243705557}
   spawnPoint: {fileID: 0}
-  projectileSpeed: 40
+  projectileSpeed: 45
 --- !u!33 &7638152631266168190
 MeshFilter:
   m_ObjectHideFlags: 0

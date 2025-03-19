@@ -33,7 +33,7 @@ public class InfernoBeam : Ability
     {
         base.Execute();
 
-        firePoint = PlayerManager.instance.GetSpellSpawnPoint();
+        firePoint = PlayerManager.instance.GetSpellSpawnPoint(abilityData.spellSpawnNumber);
         GameObject beamObject = Instantiate(abilityData.abilityPrefab, firePoint.position, firePoint.rotation);
         InfernoBeam beamInstance = beamObject.GetComponent<InfernoBeam>();
 
@@ -51,9 +51,9 @@ public class InfernoBeam : Ability
     }
     private void HandleBeamVisual()
     {
-        if (fireStreamInstance == null || PlayerManager.instance.GetSpellSpawnPoint() == null) return;
+        if (fireStreamInstance == null || PlayerManager.instance.GetSpellSpawnPoint(abilityData.spellSpawnNumber) == null) return;
 
-        Vector3 origin = PlayerManager.instance.GetSpellSpawnPoint().position;
+        Vector3 origin = PlayerManager.instance.GetSpellSpawnPoint(abilityData.spellSpawnNumber).position;
         Vector3 direction = Camera.main.transform.forward;
         RaycastHit hit;
 
@@ -89,7 +89,7 @@ public class InfernoBeam : Ability
         currentDamage = abilityData.baseDamage;
         currentBurnDamage = burnDamage;
 
-        fireStreamInstance = Instantiate(flameVFX, PlayerManager.instance.GetSpellSpawnPoint().position, Quaternion.identity);
+        fireStreamInstance = Instantiate(flameVFX, PlayerManager.instance.GetSpellSpawnPoint(abilityData.spellSpawnNumber).position, Quaternion.identity);
         fireStreamInstance.transform.SetParent(transform);
         fireStreamInstance.transform.localPosition = new Vector3(0, -3, 0);
 
@@ -115,7 +115,7 @@ public class InfernoBeam : Ability
     private void ApplyDamage()
     {
         RaycastHit hit;
-        Vector3 origin = PlayerManager.instance.GetSpellSpawnPoint().position;
+        Vector3 origin = PlayerManager.instance.GetSpellSpawnPoint(abilityData.spellSpawnNumber).position;
         Vector3 direction = Camera.main.transform.forward;
 
         if(Physics.Raycast(origin, direction, out hit, Mathf.Infinity, hitMask))

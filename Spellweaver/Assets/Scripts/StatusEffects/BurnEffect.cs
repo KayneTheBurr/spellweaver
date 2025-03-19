@@ -12,6 +12,16 @@ public class BurnEffect : DamageOverTimeEffect
             tickInterval = tickInterval
         };
         Debug.Log("Trigger Burn");
+        StatusEffectDatabase.instance.DiscoverEffect(Status.Burn);
         ApplyDOT(burnDOT, target);
+    }
+    protected override void StartEffect()
+    {
+        bool effectApplied = target.AddEffect(this);
+        if (!effectApplied)
+        {
+            Debug.Log("effects mixed, base effect not applied");
+            return;
+        }
     }
 }

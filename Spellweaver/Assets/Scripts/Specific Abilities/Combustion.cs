@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Combustion : HitScanAbility
 {
+    public float combustionMult = 2f;
     public ParticleSystem combustionEffect;
     public override void Execute()
     {
@@ -29,6 +30,7 @@ public class Combustion : HitScanAbility
         }
         if (combustionDamage > 0 && dots.Count > 0)
         {
+            combustionDamage *= combustionMult;
             combustionDamage *= dots.Count / 3;
             target.TakeDamage(combustionDamage, ElementType.Fire, this);
 

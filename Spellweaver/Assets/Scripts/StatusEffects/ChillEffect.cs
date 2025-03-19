@@ -6,14 +6,25 @@ public class ChillEffect : StatusEffect
     
     public void ApplyChill(Enemy target, float duration, float multiplier)
     {
+        StatusEffectDatabase.instance.DiscoverEffect(Status.Chill);
         Debug.Log(" Trigger Chill");
         slowEffect = multiplier;
         ApplyEffect(target, duration);
     }
     protected override void StartEffect()
     {
-        base.StartEffect();
-        
+        bool effectApplied = target.AddEffect(this);
+        if (!effectApplied)
+        {
+            Debug.Log("effects mixed, base effect not applied");
+            return;
+        }
+        if (target.HasEffect<BrittleEffect>())
+        {
+            Debug.Log("already shocked");
+            target.speedMult = 1f;
+            return;
+        }
         if (target != null)
         {
             target.ModifySpeedMultiplier(slowEffect);
