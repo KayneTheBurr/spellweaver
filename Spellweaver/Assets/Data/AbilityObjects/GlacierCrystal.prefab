@@ -56,8 +56,8 @@ MonoBehaviour:
   chillDuration: 5
   slowEffect: 0.6
   fallDelayTime: 1
-  fallForce: 100
-  impactVFX: {fileID: 0}
+  fallForce: 75
+  impactVFX: {fileID: 4676875723658723879, guid: e6a59413ba900c64995243b156b1b6b0, type: 3}
 --- !u!33 &7839252113548191803
 MeshFilter:
   m_ObjectHideFlags: 0

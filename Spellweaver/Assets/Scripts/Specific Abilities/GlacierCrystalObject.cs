@@ -54,6 +54,8 @@ public class GlacierCrystalObject : Projectile
         {
             Instantiate(impactVFX, transform.position, Quaternion.identity);
         }
-        Destroy(gameObject);
+        rb.isKinematic = true;
+        Destroy(gameObject, 0.5f);
     }
+    
 }

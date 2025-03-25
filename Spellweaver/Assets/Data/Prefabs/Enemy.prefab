@@ -50,9 +50,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorFirePrefab: {fileID: 0}
+  infectedSurgeMult: 0.6
   superChargedMultiplier: 0.8
   atomizedMultiplier: 3
+  atomizeRadius: 6
   overloadDamage: 300
+  overloadRadius: 10
   stunDuration: 1.5
   chargedDuration: 30
   scorchDuration: 6
@@ -61,9 +64,11 @@ MonoBehaviour:
   brittleDuration: 6
   freezeDuration: 6
   cryotoxinDuration: 6
+  superchargedDuration: 5
   toxicLightMultiplier: 0.25
   toxicLightDuration: 8
   toxicLightTickRate: 1
+  taintedJoltRadius: 10
   plagueBaseDamage: 0
   plagueDuration: 20
   plagueTickRate: 1
@@ -87,6 +92,8 @@ MonoBehaviour:
   floatingDamagePrefab: {fileID: 4107058518363999165, guid: 95f3e7e259a2d6c4cab488faeb4336dd, type: 3}
   floatingDotDmgPrefab: {fileID: 4107058518363999165, guid: bcac4801ec0ae474bb8d86dcf1116729, type: 3}
   isShocked: 0
+  isMoving: 0
+  speedMult: 1
   fallSpeed: 35
   moveSpeed: 3
   waypointWaitTime: 0.5

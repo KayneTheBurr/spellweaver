@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     public AbilityData basicAttack;
     public Transform spellSpawnPoint1;
     public Transform spellSpawnPoint2;
+    public Transform spellSpawnPoint3;
 
     [Header("Player Sub Managers")]
     public PlayerAbilityManager playerAbilityManager {  get; private set; }
@@ -86,6 +87,10 @@ public class PlayerManager : MonoBehaviour
         else if(spawnNumber ==2)
         {
             return spellSpawnPoint2;
+        }
+        else if(spawnNumber == 3)
+        {
+            return spellSpawnPoint3;
         }
         else
         {

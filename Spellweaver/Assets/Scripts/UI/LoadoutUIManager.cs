@@ -27,6 +27,7 @@ public class LoadoutUIManager : MonoBehaviour
     private int selectedSlot = -1;
     public Button assignButton;
     public Button backButton;
+    public TextMeshProUGUI setSlotHintText;
 
     [Header("Ready Button")]
     public Button readyButton;
@@ -64,6 +65,8 @@ public class LoadoutUIManager : MonoBehaviour
         abilitySelectionPanel.SetActive(true);
         readyButton.gameObject.SetActive(false);
         confirmationPanel.SetActive(false);
+
+        setSlotHintText.gameObject.SetActive(false);
 
         PlayerManager.instance.playerAbilityManager.ResetSpells();
         ResetLoadout();
@@ -216,6 +219,8 @@ public class LoadoutUIManager : MonoBehaviour
                 }
                 else
                 {
+                    setSlotHintText.gameObject.SetActive(true);
+                    Invoke(nameof(HideSlotTextHint), 1.5f);
                     Debug.LogWarning("set the slot first");
                 }
             }
@@ -230,6 +235,10 @@ public class LoadoutUIManager : MonoBehaviour
                 ReadyCheckForCombat();
             }
         }
+    }
+    private void HideSlotTextHint()
+    {
+        setSlotHintText.gameObject?.SetActive(false);
     }
     private void AssignBasicAttack()
     {

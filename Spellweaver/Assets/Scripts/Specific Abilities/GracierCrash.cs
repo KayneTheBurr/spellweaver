@@ -28,7 +28,6 @@ public class GracierCrash : HitScanAbility
     protected override void ApplyHitEffects(Enemy enemy, GameObject hitscanObject)
     {
         StartCoroutine(SummonIce(enemy.transform.position));
-        Destroy(gameObject, 3f);
     }
     protected override void ApplyHitEnviroEffects(Vector3 hitPoint, Vector3 hitNormal, GameObject hitscanObject)
     {
@@ -46,10 +45,10 @@ public class GracierCrash : HitScanAbility
             Destroy(iceStorm, destroyCloudTime);
         }
 
-        Vector3 glacierSpawn1 = iceSpawnPoint + new Vector3(0, 0, 3);
-        Vector3 glacierSpawn2 = iceSpawnPoint + new Vector3(3, 0, 0);
-        Vector3 glacierSpawn3 = iceSpawnPoint + new Vector3(0, 0, -3);
-        Vector3 glacierSpawn4 = iceSpawnPoint + new Vector3(-3, 0, 0);
+        Vector3 glacierSpawn1 = iceSpawnPoint + new Vector3(0, 0, 5);
+        Vector3 glacierSpawn2 = iceSpawnPoint + new Vector3(5, 0, 0);
+        Vector3 glacierSpawn3 = iceSpawnPoint + new Vector3(0, 0, -5);
+        Vector3 glacierSpawn4 = iceSpawnPoint + new Vector3(-5, 0, 0);
 
         yield return new WaitForSeconds(iceSpawnDelaySide);
         SummonIceCrystal(glacierSpawn1, false);
@@ -59,7 +58,8 @@ public class GracierCrash : HitScanAbility
         SummonIceCrystal(glacierSpawn3, false);
         yield return new WaitForSeconds(iceSpawnDelaySide);
         SummonIceCrystal(glacierSpawn4, false);
-
+        yield return null;
+        Destroy(gameObject);
 
     }
     private void SummonIceCrystal(Vector3 spawnPoint, bool isMiddle)
