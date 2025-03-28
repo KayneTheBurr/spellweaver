@@ -10,11 +10,13 @@ public class ScorchEffect : StatusEffect
     protected override void StartEffect()
     {
         base.StartEffect();
+        target.enemyStatusManager.ApplyEffect(Status.Scorch);
         target.ModifyElementMultiplier(ElementType.Fire, fireMultiplier);
     }
 
     public override void RemoveEffect()
     {
+        target.enemyStatusManager.RemoveEffect(Status.Scorch);
         target.RemoveElementMultiplier(ElementType.Fire, fireMultiplier);
         base.RemoveEffect();
     }

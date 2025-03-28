@@ -27,6 +27,7 @@ public class ChillEffect : StatusEffect
         }
         if (target != null)
         {
+            target.enemyStatusManager.ApplyEffect(Status.Chill);
             target.ModifySpeedMultiplier(slowEffect);
         }
     }
@@ -39,6 +40,7 @@ public class ChillEffect : StatusEffect
     {
         if (target != null)
         {
+            target.enemyStatusManager.RemoveEffect(Status.Chill);
             target.RemoveSpeedMultiplier(slowEffect); 
         }
         base.RemoveEffect();

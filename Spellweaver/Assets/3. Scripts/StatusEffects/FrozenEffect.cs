@@ -12,12 +12,14 @@ public class FrozenEffect : StatusEffect
     protected override void StartEffect()
     {
         base.StartEffect();
+        target.enemyStatusManager.ApplyEffect(Status.Freeze);
         target.isMoving = false;
         target.ModifyDamageMultiplier(this, damageMultiplier);
     }
 
     public override void RemoveEffect()
     {
+        target.enemyStatusManager.RemoveEffect(Status.Freeze);
         target.RemoveDamageMultiplier(this, damageMultiplier);
         target.isMoving = true;
         base.RemoveEffect();

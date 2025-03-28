@@ -12,11 +12,14 @@ public class WetEffect : StatusEffect
     protected override void StartEffect()
     {
         base.StartEffect();
+
+        target.enemyStatusManager.ApplyEffect(Status.Wet);
         target.ModifyElementMultiplier(ElementType.Lightning, lightningMultiplier);
     }
 
     public override void RemoveEffect()
     {
+        target.enemyStatusManager.RemoveEffect(Status.Wet);
         target.RemoveElementMultiplier(ElementType.Lightning, lightningMultiplier);
         base.RemoveEffect();
     }

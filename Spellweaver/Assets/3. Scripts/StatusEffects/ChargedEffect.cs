@@ -13,12 +13,13 @@ public class ChargedEffect : StatusEffect
     protected override void StartEffect()
     {
         base.StartEffect();
-        
+        target.enemyStatusManager.ApplyEffect(Status.Charged);
         target.ModifyElementMultiplier(ElementType.Lightning, lightningMultiplier);
     }
 
     public override void RemoveEffect()
     {
+        target.enemyStatusManager.RemoveEffect(Status.Charged);
         target.RemoveElementMultiplier(ElementType.Lightning, lightningMultiplier);
         base.RemoveEffect();
     }

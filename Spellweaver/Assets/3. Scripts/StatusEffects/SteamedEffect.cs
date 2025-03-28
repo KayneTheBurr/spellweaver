@@ -10,11 +10,13 @@ public class SteamedEffect : StatusEffect
     protected override void StartEffect()
     {
         base.StartEffect();
+        target.enemyStatusManager.ApplyEffect(Status.Steamed);
         target.ModifyElementMultiplier(ElementType.Fire, fireResistance);
     }
 
     public override void RemoveEffect()
     {
+        target.enemyStatusManager.RemoveEffect(Status.Steamed);
         target.RemoveElementMultiplier(ElementType.Fire, fireResistance);
         base.RemoveEffect();
     }

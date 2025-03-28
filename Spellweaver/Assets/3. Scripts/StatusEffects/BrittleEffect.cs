@@ -11,12 +11,14 @@ public class BrittleEffect : StatusEffect
     protected override void StartEffect()
     {
         base.StartEffect();
+        target.enemyStatusManager.ApplyEffect(Status.Brittle);
         target.ModifyDamageMultiplier(this, damageMultiplier);
         target.ModifyElementMultiplier(ElementType.Fire, fireMultiplier);
     }
 
     public override void RemoveEffect()
     {
+        target.enemyStatusManager.RemoveEffect(Status.Brittle);
         target.RemoveDamageMultiplier(this, damageMultiplier);
         target.RemoveElementMultiplier(ElementType.Fire, fireMultiplier);
         base.RemoveEffect();

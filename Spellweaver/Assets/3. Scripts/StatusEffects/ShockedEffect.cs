@@ -30,7 +30,7 @@ public class ShockedEffect : StatusEffect
         //    return;
         //}
         //if (target.HasEffect<ElectrocuteEffect>()) return;
-        
+        target.enemyStatusManager.ApplyEffect(Status.Shock);
         Debug.Log("no electric effect, apply shock");
         target.ModifyDamageMultiplier(this, damageMultiplier);
 
@@ -42,6 +42,7 @@ public class ShockedEffect : StatusEffect
     }
     public override void RemoveEffect()
     {
+        target.enemyStatusManager.RemoveEffect(Status.Shock);
         target.RemoveDamageMultiplier(this, damageMultiplier);
         base.RemoveEffect();
     }

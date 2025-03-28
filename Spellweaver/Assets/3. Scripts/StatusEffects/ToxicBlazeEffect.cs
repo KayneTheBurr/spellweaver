@@ -13,6 +13,15 @@ public class ToxicBlazeEffect : DamageOverTimeEffect
         };
         ApplyDOT(blazeDOT, target);
 
-        
+    }
+    protected override void StartEffect()
+    {
+        base.StartEffect();
+        target.enemyStatusManager.ApplyEffect(Status.ToxicBlaze);
+    }
+    public override void RemoveEffect()
+    {
+        target.enemyStatusManager.RemoveEffect(Status.ToxicBlaze);
+        base.RemoveEffect();
     }
 }

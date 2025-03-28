@@ -23,5 +23,11 @@ public class BurnEffect : DamageOverTimeEffect
             Debug.Log("effects mixed, base effect not applied");
             return;
         }
+        target.enemyStatusManager.ApplyEffect(Status.Burn);
+    }
+    public override void RemoveEffect()
+    {
+        target.enemyStatusManager.RemoveEffect(Status.Burn);
+        base.RemoveEffect();
     }
 }

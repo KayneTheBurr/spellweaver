@@ -20,6 +20,11 @@ public class PlagueEffect : DamageOverTimeEffect
         ApplyDOT(poisonDOT, target);
 
     }
+    protected override void StartEffect()
+    {
+        base.StartEffect();
+        target.enemyStatusManager.ApplyEffect(Status.Plague);
+    }
     public override void UpdateEffect(float timeDelta)
     {
         base.UpdateEffect(timeDelta);
@@ -31,6 +36,11 @@ public class PlagueEffect : DamageOverTimeEffect
             pulseTimer = 0;
             SpreadPlague();
         }
+    }
+    public override void RemoveEffect()
+    {
+        target.enemyStatusManager.RemoveEffect(Status.Plague);
+        base.RemoveEffect();
     }
     private void SpreadPlague()
     {

@@ -23,5 +23,11 @@ public class PoisonEffect : DamageOverTimeEffect
             Debug.Log("effects mixed, base effect not applied");
             return;
         }
+        target.enemyStatusManager.ApplyEffect(Status.Poison);
+    }
+    public override void RemoveEffect()
+    {
+        target.enemyStatusManager.RemoveEffect(Status.Poison);
+        base.RemoveEffect();
     }
 }

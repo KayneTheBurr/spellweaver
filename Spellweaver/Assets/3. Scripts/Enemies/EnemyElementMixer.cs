@@ -70,6 +70,7 @@ public class EnemyElementMixer : MonoBehaviour
                 break;
             case BurnEffect when enemy.HasEffect<PoisonEffect>():
                 TriggerFireCombust(newEffect);
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.FireCombust);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.FireCombust);
                 elementMixName = "Fire Combust";
                 reactionTriggered = true;
@@ -93,12 +94,14 @@ public class EnemyElementMixer : MonoBehaviour
                 reactionTriggered = true;
                 break;
             case BurnEffect when enemy.HasEffect<ChargedEffect>():
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.Superheat);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.Superheat);
                 TriggerSuperheat();
                 elementMixName = "Superheat";
                 reactionTriggered = true;
                 break;
             case BurnEffect when enemy.HasEffect<SteamedEffect>():
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.Fizzled);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.Fizzled);
                 TriggerFizzled();
                 Debug.Log("Fizzled");
@@ -107,6 +110,7 @@ public class EnemyElementMixer : MonoBehaviour
                 break;
             case BurnEffect when enemy.HasEffect<BrittleEffect>():
                 TriggerShatter();
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.Shatter);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.Shatter);
                 elementMixName = "Shatter";
                 reactionTriggered = true;
@@ -139,6 +143,7 @@ public class EnemyElementMixer : MonoBehaviour
                 break;
             case ChillEffect when enemy.HasEffect<ToxicBlazeEffect>():
                 TriggerExtinguish();
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.Extinguish);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.Extinguish);
                 elementMixName = "Extinguish";
                 reactionTriggered = true;
@@ -165,24 +170,28 @@ public class EnemyElementMixer : MonoBehaviour
                 break;
             case ShockedEffect when enemy.HasEffect<PlagueEffect>():
                 TriggerInfectedSurge();
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.InfectedSurge);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.InfectedSurge);
                 elementMixName = "Viral Surge";
                 reactionTriggered = false; //still applies shock
                 break;
             case ShockedEffect when enemy.HasEffect<ScorchEffect>():
                 TriggerOverload();
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.Overload);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.Overload);
                 elementMixName = "Overload";
                 reactionTriggered = true;
                 break;
             case ShockedEffect when enemy.HasEffect<PoisonEffect>():
                 TriggerToxicLight();
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.ToxicLight);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.ToxicLight);
                 elementMixName = "Toxic Light";
                 reactionTriggered = false; //still applies shock as well
                 break;
             case ShockedEffect when enemy.HasEffect<FrozenEffect>():
                 TriggerAtomize();
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.Atomize);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.Atomize);
                 elementMixName = "Atomize";
                 reactionTriggered = true;
@@ -191,12 +200,14 @@ public class EnemyElementMixer : MonoBehaviour
             // poison reactions
             case PoisonEffect when enemy.HasEffect<FrozenEffect>():
                 TriggerDissolve();
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.Dissolve);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.Dissolve);
                 elementMixName = "Dissolve";
                 reactionTriggered = true;
                 break;
             case PoisonEffect when enemy.HasEffect<BurnEffect>():
                 TriggerPoisonCombust(newEffect);
+                WorldVFXManager.instance.PlayEffectAtLocation(enemy.transform.position, Status.PoisonCombust);
                 StatusEffectDatabase.instance.DiscoverEffect(Status.PoisonCombust);
                 elementMixName = "Poison Combust";
                 reactionTriggered = true;

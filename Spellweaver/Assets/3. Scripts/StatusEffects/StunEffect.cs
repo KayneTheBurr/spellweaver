@@ -12,6 +12,7 @@ public class StunEffect : StatusEffect
     protected override void StartEffect()
     {
         target.AddEffect(this);
+        target.enemyStatusManager.ApplyEffect(Status.Stun);
         target.ModifyDamageMultiplier(this, stunMultiplier);
         target.isMoving = false;
         
@@ -19,6 +20,7 @@ public class StunEffect : StatusEffect
 
     public override void RemoveEffect()
     {
+        target.enemyStatusManager.RemoveEffect(Status.Stun);
         target.RemoveDamageMultiplier(this, stunMultiplier);
         target.isMoving = true;
         target.RemoveEffect(this);

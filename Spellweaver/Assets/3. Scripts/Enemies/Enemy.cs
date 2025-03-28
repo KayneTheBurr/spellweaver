@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     private Transform[] waypoints;
     private Rigidbody rb;
     private EnemyElementMixer elementMixer;
+    public EnemyStatusManager enemyStatusManager;
 
     public DamageInstance? lastDamageSource;
 
@@ -52,6 +53,7 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         elementMixer = GetComponent<EnemyElementMixer>();
+        enemyStatusManager = GetComponent<EnemyStatusManager>();
 
         //initializes the mult dictionary with all multipleris at 1.0
         foreach (ElementType element in System.Enum.GetValues(typeof(ElementType)))
